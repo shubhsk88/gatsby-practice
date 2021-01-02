@@ -1,9 +1,13 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import Logo from './Logo';
 
 const NavStyles = styled.nav`
   margin-bottom: 3rem;
+  .logo {
+    transform: translateY(-25%);
+  }
   ul {
     padding: 0;
     margin: 0;
@@ -30,6 +34,7 @@ const NavStyles = styled.nav`
     &:hover {
       --rotate: 3deg;
     }
+    margin-top: -6rem;
   }
   a {
     font-size: 3rem;
@@ -49,7 +54,9 @@ const Nav = () => (
         <Link to="/beers">Pizza Menu</Link>
       </li>
       <li>
-        <Link to="/">Logo</Link>
+        <Link to="/">
+          <Logo />
+        </Link>
       </li>
       <li>
         <Link to="/slicemasters">Slice Masters</Link>
