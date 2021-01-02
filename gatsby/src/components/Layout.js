@@ -7,8 +7,8 @@ import Typography from '../styles/Typography';
 
 const Layout = ({ children }) => (
   <>
-    <GlobalStyles />
     <Typography />
+    <GlobalStyles />
     <Nav />
     {children}
     <Footer />
