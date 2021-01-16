@@ -52,11 +52,34 @@ export default {
       topping1: 'toppings.1.name',
       topping2: 'toppings.2.name',
       topping3: 'toppings.3.name',
+      vegetarian0: 'toppings.0.vegetarian',
+      vegetarian1: 'toppings.1.vegetarian',
+      vegetarian2: 'toppings.2.vegetarian',
+      vegetarian3: 'toppings.3.vegetarian',
     },
-    prepare: ({ title, media, ...toppings }) => {
+    prepare: ({
+      title,
+      media,
+      vegetarian0,
+      vegetarian1,
+      vegetarian2,
+      vegetarian3,
+      ...toppings
+    }) => {
+      const vegetarian = [
+        vegetarian0,
+        vegetarian1,
+        vegetarian2,
+        vegetarian3,
+      ].filter((veg) => veg !== undefined);
+
       const top = Object.values(toppings).filter(Boolean);
 
-      return { title, media, subtitle: top.join(', ') };
+      return {
+        title: `${title} ${vegetarian.every((x) => x === true) ? '🌱' : ' '}`,
+        media,
+        subtitle: top.join(', '),
+      };
     },
   },
 };
