@@ -25,6 +25,13 @@ export const pageQuery = graphql`
           name
           vegetarian
         }
+        image {
+          asset {
+            fluid(maxWidth: 400) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
       }
     }
   }

@@ -51,7 +51,7 @@ const Nav = () => (
         <Link to="/">Hot Now</Link>
       </li>
       <li>
-        <Link to="/beers">Pizza Menu</Link>
+        <Link to="/pizzas">Pizza Menu</Link>
       </li>
       <li>
         <Link to="/">
