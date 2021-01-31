@@ -1,11 +1,13 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import PizzasList from '../components/PizzasList';
+import ToppingFilter from '../components/ToppingFilter';
 
 export default function PizzasPage({ data }) {
   const pizzas = data.pizzas.nodes;
   return (
     <>
+      <ToppingFilter />
       <PizzasList pizzas={pizzas} />
     </>
   );
