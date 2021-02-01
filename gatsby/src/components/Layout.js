@@ -28,8 +28,8 @@ const ContentStyles = styled.div`
 
 const Layout = ({ children }) => (
   <SiteBorderStyles>
-    <Typography />
     <GlobalStyles />
+    <Typography />
 
     <ContentStyles>
       <Nav />

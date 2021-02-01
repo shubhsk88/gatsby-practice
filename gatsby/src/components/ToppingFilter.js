@@ -1,6 +1,29 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
+import styled from 'styled-components';
 
+const ToppingStyle = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  align-items: center;
+  a {
+    border-radius: 5px;
+    background: var(--grey);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 0 1rem;
+    padding: 5px;
+    .count {
+      background-color: white;
+      padding: 2px 5px;
+    }
+    .active {
+      background: var(--yellow);
+    }
+  }
+`;
 const countToppingsInPizza = (pizzas) => {
   console.log(pizzas);
   const toppingsCount = pizzas
@@ -12,6 +35,8 @@ const countToppingsInPizza = (pizzas) => {
       } else {
         acc[topping.id] = {
           count: 1,
+          id: topping.id,
+
           name: topping.name,
         };
       }
@@ -43,12 +68,20 @@ const ToppingFilter = () => {
       }
     }
   `);
-  console.log(pizzas);
 
   const toppingsCount = countToppingsInPizza(pizzas.nodes);
   console.clear();
   console.log(toppingsCount);
 
-  return <div>Hello world</div>;
+  return (
+    <ToppingStyle>
+      {toppingsCount.map((topping) => (
+        <Link to={`/toppings/${topping.name}`} key={topping.id}>
+          <span className="name">{topping.name}</span>
+          <span className="count">{topping.count}</span>
+        </Link>
+      ))}
+    </ToppingStyle>
+  );
 };
 export default ToppingFilter;
