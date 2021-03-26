@@ -25,7 +25,6 @@ const ToppingStyle = styled.div`
   }
 `;
 const countToppingsInPizza = (pizzas) => {
-  console.log(pizzas);
   const toppingsCount = pizzas
     .flatMap((pizza) => pizza.toppings)
     .reduce((acc, topping) => {
@@ -70,8 +69,6 @@ const ToppingFilter = () => {
   `);
 
   const toppingsCount = countToppingsInPizza(pizzas.nodes);
-  console.clear();
-  console.log(toppingsCount);
 
   return (
     <ToppingStyle>
